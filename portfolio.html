@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brahim Chakroun - Portfolio Complet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3c72;
+            --secondary: #2a5298;
+            --accent: #00b4d8;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gray: #6c757d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        /* HEADER */
+        .portfolio-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .portfolio-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .back-to-cv {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .back-to-cv:hover {
+            background: transparent;
+            color: white;
+        }
+
+        /* FILTERS */
+        .filter-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* PORTFOLIO GRID */
+        .portfolio-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .portfolio-full-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .card-img {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-card:hover .card-img img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .card-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .card-tag {
+            background: #e9f7fe;
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .card-link {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .card-link:hover {
+            background: var(--accent);
+        }
+
+        .card-link.secondary {
+            background: var(--gray);
+        }
+
+        /* STATS SECTION */
+        .stats-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 60px 20px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        /* FOOTER */
+        .portfolio-footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--primary);
+            color: white;
+        }
+
+        .portfolio-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .portfolio-footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .portfolio-footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .portfolio-header h1 {
+                font-size: 2.2rem;
+            }
+            .portfolio-full-grid {
+                grid-template-columns: 1fr;
+            }
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .filter-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="portfolio-header">
+        <h1><i class="fas fa-project-diagram"></i> Portfolio Complet</h1>
+        <p>Explorez l'ensemble de mes projets en cybersécurité, administration système et développement. Chaque projet représente un défi technique relevé avec innovation et expertise.</p>
+        <a href="index.html#projets-significatifs" class="back-to-cv">
+            <i class="fas fa-arrow-left"></i> Retour au CV
+        </a>
+    </header>
+
+    <!-- FILTERS -->
+    <div class="filter-container">
+        <h2 style="color: var(--primary); margin-bottom: 20px;">Filtrer par catégorie</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Tous les projets</button>
+            <button class="filter-btn" data-filter="cybersec">Cybersécurité</button>
+            <button class="filter-btn" data-filter="cloud">Cloud & Infrastructure</button>
+            <button class="filter-btn" data-filter="network">Réseaux</button>
+            <button class="filter-btn" data-filter="iot">IoT & Développement</button>
+        </div>
+    </div>
+
+    <!-- PORTFOLIO GRID -->
+    <div class="portfolio-container">
+        <div class="portfolio-full-grid">
+            
+            <!-- PROJET 1 -->
+            <div class="portfolio-card" data-category="cloud">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Azure Stack HCI">
+                </div>
+                <div class="card-content">
+                    <h3>Modernisation Infrastructure Azure Stack HCI</h3>
+                    <p>Conception et déploiement complet d'une infrastructure hyper-convergée locale avec 4 nœuds Lenovo, intégration Azure Arc pour une gestion hybride unifiée.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Azure Stack HCI</span>
+                        <span class="card-tag">Hyper-V</span>
+                        <span class="card-tag">PowerShell</span>
+                        <span class="card-tag">Cisco Nexus</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="#" class="card-link">Voir le cas d'étude</a>
+                        <a href="#" class="card-link secondary">Diagrammes</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJET 2 -->
+            <div class="portfolio-card" data-category="cybersec">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sauvegarde Commvault">
+                </div>
+                <div class="card-content">
+                    <h3>Stratégie de Sauvegarde 3 Niveaux</h3>
+                    <p>Architecture et implémentation d'une solution Commvault avec réplication multi-sites pour une résilience maximale des données critiques.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Commvault</span>
+                        <span class="card-tag">Backup & DRP</span>
+                        <span class="card-tag">Qnap NAS</span>
+                        <span class="card-tag">Hyper-V</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="#" class="card-link">Documentation technique</a>
+                        <a href="#" class="card-link secondary">Architecture</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJET 3 -->
+            <div class="portfolio-card" data-category="iot">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="IoT Raspberry Pi">
+                </div>
+                <div class="card-content">
+                    <h3>Système de Contrôle d'Accès IoT</h3>
+                    <p>Développement d'un système de reconnaissance faciale sur Raspberry Pi avec interface web sécurisée SSL/TLS pour contrôle d'accès intelligent.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Python</span>
+                        <span class="card-tag">OpenCV</span>
+                        <span class="card-tag">Raspberry Pi</span>
+                        <span class="card-tag">Flask</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/votreprojet" class="card-link" target="_blank">Code sur GitHub</a>
+                        <a href="#" class="card-link secondary">Démo vidéo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJET 4 -->
+            <div class="portfolio-card" data-category="cybersec">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="SIEM Microsoft Sentinel">
+                </div>
+                <div class="card-content">
+                    <h3>Implémentation SIEM Microsoft Sentinel</h3>
+                    <p>Déploiement et configuration d'un SOC avec Microsoft Sentinel, création de playbooks automatiques et règles de détection avancées.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Microsoft Sentinel</span>
+                        <span class="card-tag">SIEM</span>
+                        <span class="card-tag">Azure Logic Apps</span>
+                        <span class="card-tag">KQL</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="#" class="card-link">Rapport d'implémentation</a>
+                        <a href="#" class="card-link secondary">Playbooks</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJET 5 -->
+            <div class="portfolio-card" data-category="network">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cisco ISE">
+                </div>
+                <div class="card-content">
+                    <h3>Segmentation Réseau avec Cisco ISE</h3>
+                    <p>Déploiement de politique de sécurité Zero Trust avec Cisco ISE pour l'authentification et la segmentation réseau avancée.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Cisco ISE</span>
+                        <span class="card-tag">Zero Trust</span>
+                        <span class="card-tag">802.1X</span>
+                        <span class="card-tag">VLAN</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="#" class="card-link">Guide d'implémentation</a>
+                        <a href="#" class="card-link secondary">Topologie</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJET 6 -->
+            <div class="portfolio-card" data-category="cloud">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Migration Cloud">
+                </div>
+                <div class="card-content">
+                    <h3>Migration Microsoft 365 Complète</h3>
+                    <p>Migration de 500+ boîtes mail Exchange on-premises vers Exchange Online et déplacement des partages fichiers vers SharePoint/OneDrive.</p>
+                    <div class="card-tags">
+                        <span class="card-tag">Microsoft 365</span>
+                        <span class="card-tag">Exchange Online</span>
+                        <span class="card-tag">SharePoint</span>
+                        <span class="card-tag">Migration</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="#" class="card-link">Plan de migration</a>
+                        <a href="#" class="card-link secondary">Checklist</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <section class="stats-section">
+        <h2 style="color: var(--primary); margin-bottom: 40px;">En Chiffres</h2>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Projets Réalisés</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Années d'Expérience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Satisfaction Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Technologies Maîtrisées</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="portfolio-footer">
+        <p>© 2025 Brahim Chakroun – Tous les projets présentés sont réels et ont été réalisés dans un contexte professionnel</p>
+        <div class="portfolio-footer-links">
+            <a href="index.html">
+                <i class="fas fa-home"></i> Accueil CV
+            </a>
+            <a href="mailto:brahim.chakroun@outlook.fr">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+            <a href="https://tn.linkedin.com/in/brahim-chakroun-785ba51a8" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Show/hide cards based on filter
+                    portfolioCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            if (card.getAttribute('data-category') === filterValue) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Add animation on scroll
+            const cards = document.querySelectorAll('.portfolio-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
