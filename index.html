@@ -52,11 +52,11 @@
                 url('images/hero-bg.jpg') center/cover no-repeat fixed;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             text-align: center;
             color: white;
-            padding: 40px 20px;
+            padding: 40px 20px 20px;
             position: relative;
             overflow: hidden;
         }
@@ -81,18 +81,19 @@
             max-width: 1000px;
             z-index: 2;
             position: relative;
+			margin-top: 50px;
         }
 
-        /* PROFIL PHOTO - NOUVELLE VERSION MAGNIFIQUE */
+        /* PROFIL PHOTO */
         .profile-container {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             position: relative;
             display: inline-block;
         }
 
         .profile-frame {
-            width: 220px;
-            height: 220px;
+            width: 280px;
+            height: 280px;
             position: relative;
             display: flex;
             align-items: center;
@@ -101,16 +102,16 @@
         }
 
         .profile-photo {
-            width: 180px;
-            height: 180px;
+            width: 240px;
+            height: 240px;
             border-radius: 50%;
             overflow: hidden;
-            border: 4px solid white;
+            border: 5px solid white;
             position: relative;
             z-index: 2;
             box-shadow: 
-                0 0 0 4px var(--accent),
-                0 0 30px rgba(0, 180, 216, 0.4),
+                0 0 0 5px var(--accent),
+                0 0 40px rgba(0, 180, 216, 0.5),
                 inset 0 0 20px rgba(255, 255, 255, 0.2);
             transition: var(--transition);
             animation: floatPhoto 6s ease-in-out infinite;
@@ -142,7 +143,6 @@
             transform: scale(1.1);
         }
 
-        /* Effets autour de la photo */
         .profile-frame::before,
         .profile-frame::after {
             content: '';
@@ -172,19 +172,18 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Badge professionnel */
         .profile-badge {
             position: absolute;
-            bottom: 10px;
-            right: 10px;
+            bottom: 15px;
+            right: 15px;
             background: linear-gradient(135deg, var(--accent), var(--primary));
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
             font-weight: 600;
             z-index: 3;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             animation: pulse 2s infinite;
         }
 
@@ -196,7 +195,7 @@
         /* TITRES HERO */
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             background: linear-gradient(135deg, white, #e6f7ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -208,7 +207,7 @@
         .hero .title {
             font-size: 1.8rem;
             font-weight: 300;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.9);
             position: relative;
             display: inline-block;
@@ -227,7 +226,7 @@
 
         .hero .intro {
             font-size: 1.2rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
@@ -240,11 +239,11 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
-            margin-bottom: 50px;
+            gap: 20px;
+            margin-bottom: 40px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            padding: 20px;
+            padding: 18px;
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -282,11 +281,11 @@
             color: var(--accent);
         }
 
-        /* NAV BUTTONS */
+        /* NAV BUTTONS - MODIFIÉ */
         .nav-buttons {
             display: flex;
             gap: 25px;
-            margin-top: 40px;
+            margin-top: 40px; /* Augmenté l'espace au-dessus */
             justify-content: center;
             width: 100%;
             flex-wrap: wrap;
@@ -338,9 +337,10 @@
             font-size: 1.2rem;
         }
 
+        /* SCROLL DOWN - MODIFIÉ */
         .scroll-down {
             position: absolute;
-            bottom: 30px;
+            bottom: 30px; /* Descendu */
             left: 50%;
             transform: translateX(-50%);
             color: white;
@@ -495,11 +495,31 @@
         }
 
         .accordion-content.show {
-            max-height: 1000px;
+            max-height: 500px; /* Hauteur fixe avec scroll */
             padding: 25px;
             border: 1px solid #e2e8f0;
             border-top: none;
             margin-bottom: 20px;
+            overflow-y: auto; /* Scrollbar */
+        }
+
+        /* Style de la scrollbar */
+        .accordion-content.show::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .accordion-content.show::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .accordion-content.show::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            border-radius: 4px;
+        }
+
+        .accordion-content.show::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
         }
 
         /* ===== SIDEBAR CONTENT ===== */
@@ -560,6 +580,69 @@
             font-size: 0.8rem;
         }
 
+        /* ===== LOGOS DES ENTREPRISES ===== */
+        .company-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 5px;
+            flex-shrink: 0;
+        }
+
+        .company-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+		/* ===== CERTIFICATION ICONS STYLES ===== */
+		.certification-icon {
+			width: 50px;
+			height: 50px;
+			background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.5rem;
+			border: 2px solid rgba(30, 60, 114, 0.1);
+			transition: var(--transition);
+			flex-shrink: 0;
+			margin-right: 15px;
+		}
+		.certification-item:hover .certification-icon {
+			background: linear-gradient(135deg, var(--accent), var(--primary));
+			border-color: var(--accent);
+			transform: rotate(5deg) scale(1.1);
+		}
+
+		.certification-icon i {
+			transition: var(--transition);
+		}
+
+		.certification-item:hover .certification-icon i {
+			color: white !important;
+			transform: scale(1.1);
+		}
+
+		.certification-header {
+			display: flex;
+			align-items: center;
+			margin-bottom: 15px;
+		}
+
+		.certification-info {
+			flex: 1;
+		}
+		
+
         /* ===== EXPERIENCE ===== */
         .experience-item, .education-item {
             margin-bottom: 35px;
@@ -605,7 +688,7 @@
             margin-bottom: 5px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
 
         .company i, .school i {
@@ -643,6 +726,216 @@
             position: absolute;
             left: -15px;
             font-size: 1.2rem;
+        }
+
+        /* ===== CERTIFICATIONS ===== */
+        .certifications-list {
+            padding: 0 !important;
+        }
+
+        .certifications-list li {
+            padding: 0 !important;
+            margin-bottom: 15px !important;
+            border-left: none !important;
+            box-shadow: none !important;
+        }
+
+        .certification-item {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+            margin-bottom: 10px;
+            padding: 20px;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent);
+        }
+
+        .certification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .certification-info {
+            flex: 1;
+        }
+
+        .certification-title {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1.4;
+            margin-bottom: 5px;
+        }
+
+        .certification-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .certification-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .view-certificate-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .view-certificate-btn:hover {
+            background: linear-gradient(135deg, var(--accent), #0099cc);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 60, 114, 0.2);
+        }
+
+        /* ===== CERTIFICATE MODAL ===== */
+        .certificate-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .certificate-modal {
+            max-width: 900px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .certificate-modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .certificate-modal-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .certificate-close-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certificate-close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .certificate-modal-body {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .certificate-image-container {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .certificate-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .certificate-image-container img:hover {
+            transform: scale(1.02);
+        }
+
+        .certificate-action-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 auto;
+        }
+
+        .certificate-action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(30, 60, 114, 0.3);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
         }
 
         /* ===== SIGNIFICANT PROJECTS ===== */
@@ -989,6 +1282,16 @@
                 flex-direction: column;
                 gap: 20px;
             }
+            
+            .certification-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .view-certificate-btn {
+                width: 100%;
+                max-width: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1013,42 +1316,17 @@
                 font-size: 1.2rem;
             }
         }
-
-        /* ===== PRINT STYLES ===== */
-        @media print {
-            .hero, footer, .nav-buttons, .scroll-down, .btn-all-projects, .back-to-top {
-                display: none;
-            }
-            
-            .main-container {
-                display: block;
-                max-width: 100%;
-            }
-            
-            .sidebar, .main-content {
-                width: 100%;
-                box-shadow: none;
-                border: none;
-                padding: 0;
-            }
-            
-            .section {
-                box-shadow: none;
-                border: 1px solid #ddd;
-                page-break-inside: avoid;
-            }
-        }
     </style>
 </head>
 <body>
     <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <!-- PHOTO DE PROFIL MAGNIFIQUE -->
+            <!-- PHOTO DE PROFIL -->
             <div class="profile-container">
                 <div class="profile-frame">
                     <div class="profile-photo">
-                        <img src="images/profil.jpg" alt="Brahim Chakroun">
+                        <img src="images/profile.jpg" alt="Brahim Chakroun">
                     </div>
                     <div class="profile-badge">
                         <i class="fas fa-shield-alt"></i> Cyber Expert
@@ -1058,8 +1336,6 @@
             
             <h1>Brahim Chakroun</h1>
             <p class="title">Expert Cybersécurité & Cloud | Administrateur Systèmes & Réseaux</p>
-            <p class="intro">Titulaire d'un Master en Cybersécurité avec plus de 3 ans d'expérience en administration système et cloud. Spécialiste des infrastructures hybrides Microsoft, passionné par l'innovation et les défis techniques.</p>
-            
             <div class="contact-info-hero">
                 <div class="contact-item-hero">
                     <i class="fas fa-envelope"></i>
@@ -1108,28 +1384,28 @@
                 <div class="accordion-content" id="skills-content">
                     <div class="skill-category">Systèmes & Cloud</div>
                     <ul class="skills-list">
-                        <li><i class="fas fa-cloud"></i> Microsoft 365 / Entra ID</li>
-                        <li><i class="fas fa-server"></i> Azure Stack HCI / Hyper-V</li>
-                        <li><i class="fas fa-database"></i> Windows Server / SQL Server</li>
-                        <li><i class="fas fa-save"></i> Commvault / Veeam Backup</li>
-                        <li><i class="fas fa-sync-alt"></i> PowerShell Automation</li>
+                        <li>Microsoft 365 / Entra ID</li>
+                        <li>Azure Stack HCI / Hyper-V</li>
+                        <li>Windows Server / SQL Server</li>
+                        <li>Commvault / Veeam Backup</li>
+                        <li>PowerShell Automation</li>
                     </ul>
                     
                     <div class="skill-category">Cybersécurité</div>
                     <ul class="skills-list">
-                        <li><i class="fas fa-shield-alt"></i> Microsoft Defender XDR</li>
-                        <li><i class="fas fa-eye"></i> Microsoft Sentinel (SIEM)</li>
-                        <li><i class="fas fa-fire"></i> FortiGate / Palo Alto NGFW</li>
-                        <li><i class="fas fa-key"></i> MFA / Accès Conditionnel</li>
-                        <li><i class="fas fa-search"></i> Threat Hunting / DLP</li>
+                        <li>Microsoft Defender XDR</li>
+                        <li>Microsoft Sentinel (SIEM)</li>
+                        <li>FortiGate / Palo Alto NGFW</li>
+                        <li>MFA / Accès Conditionnel</li>
+                        <li>Threat Hunting / DLP</li>
                     </ul>
                     
                     <div class="skill-category">Réseaux</div>
                     <ul class="skills-list">
-                        <li><i class="fas fa-network-wired"></i> Cisco Switching / VLAN</li>
-                        <li><i class="fas fa-wifi"></i> Wi-Fi / Cisco ISE 802.1X</li>
-                        <li><i class="fas fa-chart-line"></i> SolarWinds Monitoring</li>
-                        <li><i class="fas fa-phone-alt"></i> VoIP (Cisco Call Manager)</li>
+                        <li>Cisco Switching / VLAN</li>
+                        <li>Wi-Fi / Cisco ISE 802.1X</li>
+                        <li>SolarWinds Monitoring</li>
+                        <li>VoIP (Cisco Call Manager)</li>
                     </ul>
                 </div>
                 
@@ -1164,28 +1440,138 @@
                 <div class="accordion-content" id="languages-content">
                     <ul class="skills-list">
                         <li><strong>Français</strong> - Langue maternelle</li>
-                        <li><strong>Anglais</strong> - Professionnel (TOEIC 850)</li>
+                        <li><strong>Anglais</strong> - Professionnel</li>
                         <li><strong>Arabe</strong> - Langue maternelle</li>
                     </ul>
                 </div>
-
-                <button class="accordion-btn" id="languages-btn">
-                    <span><i class="fas fa-language"></i> Certifcas Professionel</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content" id="languages-content">
-                    <ul class="skills-list">
-                        <li><strong>Français</strong> - Langue maternelle</li>
-                        <li><strong>Anglais</strong> - Professionnel (TOEIC 850)</li>
-                        <li><strong>Arabe</strong> - Langue maternelle</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="BNA.pdf" class="btn-project" target="_blank" style="display: inline-flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-download"></i> Télécharger CV PDF
-                </a>
+                
+                <button class="accordion-btn" id="certifications-btn">
+					<span><i class="fas fa-certificate"></i> Certifications Professionnelles</span>
+					<i class="fas fa-chevron-down"></i>
+				</button>
+				<div class="accordion-content" id="certifications-content">
+					<ul class="skills-list certifications-list">
+						<!-- Certif 1 -->
+						<li>
+							<div class="certification-item">
+								<div class="certification-header">
+									<div class="certification-icon">
+										<i class="fas fa-award" style="color: #f58220;"></i>
+									</div>
+									<div class="certification-info">
+										<div class="certification-title">
+											Fortinet NSE 4 - Network Security Professional
+										</div>
+										<div class="certification-date">
+											Obtenue : Novembre 2023
+										</div>
+									</div>
+								</div>
+								<div class="certification-actions">
+									<button class="view-certificate-btn" data-certificate="fortinet-nse4">
+										<i class="fas fa-eye"></i> Voir la certification
+									</button>
+								</div>
+							</div>
+						</li>
+        
+						<!-- Certif 2 -->
+						<li>
+							<div class="certification-item">
+								<div class="certification-header">
+									<div class="certification-icon">
+										<i class="fas fa-award" style="color: #0078d4;"></i>
+									</div>
+									<div class="certification-info">
+										<div class="certification-title">
+											Microsoft Certified: Azure Administrator Associate (AZ-104)
+										</div>
+										<div class="certification-date">
+											Obtenue : Janvier 2024
+										</div>
+									</div>
+								</div>
+								<div class="certification-actions">
+									<button class="view-certificate-btn" data-certificate="azure-admin">
+										<i class="fas fa-eye"></i> Voir la certification
+									</button>
+								</div>
+							</div>
+						</li>
+        
+						<!-- Certif 3 -->
+						<li>
+							<div class="certification-item">
+								<div class="certification-header">
+									<div class="certification-icon">
+										<i class="fas fa-award" style="color: #e1382b;"></i>
+									</div>
+									<div class="certification-info">
+										<div class="certification-title">
+											CompTIA Security+
+										</div>
+										<div class="certification-date">
+											Obtenue : Juin 2023
+										</div>
+									</div>
+								</div>
+								<div class="certification-actions">
+									<button class="view-certificate-btn" data-certificate="comptia-security">
+										<i class="fas fa-eye"></i> Voir la certification
+									</button>
+								</div>
+							</div>
+						</li>
+        
+						<!-- Certif 4 -->
+						<li>
+							<div class="certification-item">
+								<div class="certification-header">
+									<div class="certification-icon">
+										<i class="fas fa-award" style="color: #00bc6f;"></i>
+									</div>
+									<div class="certification-info">
+										<div class="certification-title">
+											Microsoft 365 Certified: Enterprise Administrator Expert
+										</div>
+										<div class="certification-date">
+											Obtenue : Mars 2023
+										</div>
+									</div>
+								</div>
+								<div class="certification-actions">
+									<button class="view-certificate-btn" data-certificate="m365-expert">
+										<i class="fas fa-eye"></i> Voir la certification
+									</button>
+								</div>
+							</div>
+						</li>
+        
+						<!-- Certif 5 -->
+						<li>
+							<div class="certification-item">
+								<div class="certification-header">
+									<div class="certification-icon">
+										<i class="fas fa-award" style="color: #1ba0d7;"></i>
+									</div>
+									<div class="certification-info">
+										<div class="certification-title">
+											Cisco Certified Network Associate (CCNA)
+										</div>
+										<div class="certification-date">
+											Obtenue : Décembre 2022
+										</div>
+									</div>
+								</div>
+								<div class="certification-actions">
+									<button class="view-certificate-btn" data-certificate="ccna">
+										<i class="fas fa-eye"></i> Voir la certification
+									</button>
+								</div>
+							</div>
+						</li>
+					</ul>
+				<!-- </div> -->
             </div>
         </aside>
 
@@ -1197,7 +1583,12 @@
                 
                 <div class="experience-item">
                     <h3 class="job-title">Administrateur Réseaux et Systèmes</h3>
-                    <p class="company"><i class="fas fa-building"></i> Assurances ZITOUNA TAKAFUL – Le Kram, Tunisie</p>
+                    <div class="company">
+                        <div class="company-logo">
+                            <img src="images/logos/zitouna-logo.png" alt="Zitouna Takaful Logo">
+                        </div>
+                        Assurances ZITOUNA TAKAFUL – Le Kram, Tunisie
+                    </div>
                     <span class="date"><i class="far fa-calendar"></i> 04/09/2023 – En cours</span>
                     
                     <h4 style="color: var(--secondary); margin: 20px 0 10px;"><i class="fas fa-cloud"></i> Expertise Systèmes & Cloud</h4>
@@ -1222,7 +1613,12 @@
 
                 <div class="experience-item">
                     <h3 class="job-title">Administrateur Systèmes</h3>
-                    <p class="company"><i class="fas fa-plane"></i> OACI-Tunis – Tunis, Tunisie</p>
+                    <div class="company">
+                        <div class="company-logo">
+                            <img src="images/logos/oaci-logo.png" alt="OACI Logo">
+                        </div>
+                        OACI-Tunis – Tunis, Tunisie
+                    </div>
                     <span class="date"><i class="far fa-calendar"></i> 02/01/2023 – 31/08/2023</span>
                     <ul>
                         <li>Administration cluster Windows Server (2 nœuds) haute disponibilité</li>
@@ -1235,7 +1631,12 @@
 
                 <div class="experience-item">
                     <h3 class="job-title">Stage Cybersécurité - Industrie Pétrolière</h3>
-                    <p class="company"><i class="fas fa-oil-can"></i> Compagnie pétrolière OMV – Gabes, Tunisie</p>
+                    <div class="company">
+                        <div class="company-logo">
+                            <img src="images/logos/omv-logo.png" alt="OMV Logo">
+                        </div>
+                        Compagnie pétrolière OMV – Gabes, Tunisie
+                    </div>
                     <span class="date"><i class="far fa-calendar"></i> 01/02/2022 – 31/05/2022</span>
                     <ul>
                         <li>Analyse architecture réseau 3-Tier et haute disponibilité</li>
@@ -1370,9 +1771,6 @@
                 <a href="https://tn.linkedin.com/in/brahim-chakroun-785ba51a8" target="_blank">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
-                <a href="BNA.pdf" target="_blank">
-                    <i class="fas fa-file-pdf"></i> CV PDF
-                </a>
             </div>
             
             <div class="copyright">
@@ -1384,6 +1782,98 @@
             </div>
         </div>
     </footer>
+
+    <!-- ===== CERTIFICATE MODALS ===== -->
+    
+    <!-- Fortinet NSE4 Modal -->
+    <div id="modal-fortinet-nse4" class="certificate-modal-overlay">
+        <div class="certificate-modal">
+            <div class="certificate-modal-header">
+                <h3><i class="fas fa-award" style="color: #f58220;"></i> Fortinet NSE 4 - Network Security Professional</h3>
+                <button class="certificate-close-btn" onclick="closeCertificateModal()">&times;</button>
+            </div>
+            <div class="certificate-modal-body">
+                <div class="certificate-image-container">
+                    <img src="images/certificates/fortinet-nse4.jpg" alt="Fortinet NSE 4 Certification">
+                </div>
+                <button class="certificate-action-btn" onclick="closeCertificateModal()">
+                    <i class="fas fa-times"></i> Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Azure Admin Modal -->
+    <div id="modal-azure-admin" class="certificate-modal-overlay">
+        <div class="certificate-modal">
+            <div class="certificate-modal-header">
+                <h3><i class="fas fa-award" style="color: #e1382b;"></i> Microsoft Certified: Azure Administrator Associate</h3>
+                <button class="certificate-close-btn" onclick="closeCertificateModal()">&times;</button>
+            </div>
+            <div class="certificate-modal-body">
+                <div class="certificate-image-container">
+                    <img src="images/certificates/azure-admin.jpg" alt="Microsoft Azure Administrator Certification">
+                </div>
+                <button class="certificate-action-btn" onclick="closeCertificateModal()">
+                    <i class="fas fa-times"></i> Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CompTIA Security+ Modal -->
+    <div id="modal-comptia-security" class="certificate-modal-overlay">
+        <div class="certificate-modal">
+            <div class="certificate-modal-header">
+                <h3><i class="fas fa-award" style="color: #0078d4;"></i> CompTIA Security+</h3>
+                <button class="certificate-close-btn" onclick="closeCertificateModal()">&times;</button>
+            </div>
+            <div class="certificate-modal-body">
+                <div class="certificate-image-container">
+                    <img src="images/certificates/comptia-security.jpg" alt="CompTIA Security+ Certification">
+                </div>
+                <button class="certificate-action-btn" onclick="closeCertificateModal()">
+                    <i class="fas fa-times"></i> Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- M365 Expert Modal -->
+    <div id="modal-m365-expert" class="certificate-modal-overlay">
+        <div class="certificate-modal">
+            <div class="certificate-modal-header">
+                <h3><i class="fas fa-award" style="color: #0052cc;></i> Microsoft 365 Certified: Enterprise Administrator Expert</h3>
+                <button class="certificate-close-btn" onclick="closeCertificateModal()">&times;</button>
+            </div>
+            <div class="certificate-modal-body">
+                <div class="certificate-image-container">
+                    <img src="images/certificates/m365-expert.jpg" alt="Microsoft 365 Expert Certification">
+                </div>
+                <button class="certificate-action-btn" onclick="closeCertificateModal()">
+                    <i class="fas fa-times"></i> Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CCNA Modal -->
+    <div id="modal-ccna" class="certificate-modal-overlay">
+        <div class="certificate-modal">
+            <div class="certificate-modal-header">
+                <h3><i class="fas fa-award style="color: #00bc6f;""></i> Cisco Certified Network Associate (CCNA)</h3>
+                <button class="certificate-close-btn" onclick="closeCertificateModal()">&times;</button>
+            </div>
+            <div class="certificate-modal-body">
+                <div class="certificate-image-container">
+                    <img src="images/certificates/ccna.jpg" alt="Cisco CCNA Certification">
+                </div>
+                <button class="certificate-action-btn" onclick="closeCertificateModal()">
+                    <i class="fas fa-times"></i> Fermer
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
         // ===== ACCORDION FUNCTIONALITY =====
@@ -1411,13 +1901,7 @@
                 });
             });
             
-            // Open first accordion by default
-            const firstBtn = document.getElementById('skills-btn');
-            if (firstBtn) {
-                firstBtn.classList.add('active');
-                const firstContent = document.getElementById('skills-content');
-                if (firstContent) firstContent.classList.add('show');
-            }
+           
             
             // ===== SCROLL ANIMATION FOR SECTIONS =====
             const sections = document.querySelectorAll('.section');
@@ -1461,40 +1945,50 @@
                 });
             });
             
-            // ===== LAZY LOAD IMAGES =====
-            const images = document.querySelectorAll('img');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src || img.src;
-                        img.classList.add('loaded');
-                        observer.unobserve(img);
+            // ===== CERTIFICATES FUNCTIONALITY =====
+            document.querySelectorAll('.view-certificate-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const certificateId = this.getAttribute('data-certificate');
+                    openCertificateModal(certificateId);
+                });
+            });
+            
+            // Fermer modal en cliquant en dehors
+            document.querySelectorAll('.certificate-modal-overlay').forEach(overlay => {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeCertificateModal();
                     }
                 });
             });
             
-            images.forEach(img => imageObserver.observe(img));
+            // Fermer modal avec Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeCertificateModal();
+                }
+            });
             
             // ===== CURRENT YEAR FOR FOOTER =====
             document.getElementById('current-year').textContent = new Date().getFullYear();
-            
-            // ===== PROJECT CARDS HOVER EFFECT =====
-            const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.zIndex = '10';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.zIndex = '1';
-                });
-            });
         });
         
-        // ===== PRINT FUNCTION =====
-        function printCV() {
-            window.print();
+        // ===== CERTIFICATE MODAL FUNCTIONS =====
+        function openCertificateModal(certificateId) {
+            const modalId = `modal-${certificateId}`;
+            const modal = document.getElementById(modalId);
+            
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeCertificateModal() {
+            document.querySelectorAll('.certificate-modal-overlay').forEach(modal => {
+                modal.style.display = 'none';
+            });
+            document.body.style.overflow = 'auto';
         }
     </script>
 </body>
